@@ -21,6 +21,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["@testing-library/jest-dom", "jest"],
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src",
