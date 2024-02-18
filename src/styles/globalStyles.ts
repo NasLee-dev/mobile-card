@@ -2,6 +2,13 @@ import { css } from '@emotion/react'
 import { colorPalette } from './colorPalette'
 
 export default css`
+  ${colorPalette}
+
+  :root {
+    --dimmed-zindex: 10;
+    --alert-zindex: 11;
+  }
+
   html,
   body,
   div,
@@ -132,12 +139,9 @@ export default css`
     padding: 0;
     width: auto;
     overflow: visible;
-
     background: transparent;
-
     color: inherit;
     font: inherit;
-
     line-height: normal;
   }
 `
