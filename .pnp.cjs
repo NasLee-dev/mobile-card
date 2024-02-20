@@ -49,6 +49,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:18.2.0"],\
+          ["react-router-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:6.22.1"],\
           ["react-scripts", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:5.0.1"],\
           ["typescript", "patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"],\
           ["web-vitals", "npm:2.1.4"]\
@@ -5603,6 +5604,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/@protobufjs-utf8-npm-1.1.0-02c590807c-10c0.zip/node_modules/@protobufjs/utf8/",\
         "packageDependencies": [\
           ["@protobufjs/utf8", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@remix-run/router", [\
+      ["npm:1.15.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/@remix-run-router-npm-1.15.1-7a18033173-10c0.zip/node_modules/@remix-run/router/",\
+        "packageDependencies": [\
+          ["@remix-run/router", "npm:1.15.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14808,6 +14818,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:18.2.0"],\
+          ["react-router-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:6.22.1"],\
           ["react-scripts", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:5.0.1"],\
           ["typescript", "patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"],\
           ["web-vitals", "npm:2.1.4"]\
@@ -17058,6 +17069,57 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/react-refresh-npm-0.11.0-c0a4e59e76-10c0.zip/node_modules/react-refresh/",\
         "packageDependencies": [\
           ["react-refresh", "npm:0.11.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-router", [\
+      ["npm:6.22.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-router-npm-6.22.1-bb2dee0df3-10c0.zip/node_modules/react-router/",\
+        "packageDependencies": [\
+          ["react-router", "npm:6.22.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:a99b64fb309042ced2fe2dd3dd04f2ef50b3456ddb21405cc0acab4b7c48fb56c86a16456e221313c2e78ab2e22cebf5a8d36e767f526f612010646571e616ef#npm:6.22.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-router-virtual-dc5a88e455/4/.yarn/berry/cache/react-router-npm-6.22.1-bb2dee0df3-10c0.zip/node_modules/react-router/",\
+        "packageDependencies": [\
+          ["react-router", "virtual:a99b64fb309042ced2fe2dd3dd04f2ef50b3456ddb21405cc0acab4b7c48fb56c86a16456e221313c2e78ab2e22cebf5a8d36e767f526f612010646571e616ef#npm:6.22.1"],\
+          ["@remix-run/router", "npm:1.15.1"],\
+          ["@types/react", "npm:18.2.55"],\
+          ["react", "npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-router-dom", [\
+      ["npm:6.22.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-router-dom-npm-6.22.1-d8be1b4f15-10c0.zip/node_modules/react-router-dom/",\
+        "packageDependencies": [\
+          ["react-router-dom", "npm:6.22.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:6.22.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-router-dom-virtual-a99b64fb30/4/.yarn/berry/cache/react-router-dom-npm-6.22.1-d8be1b4f15-10c0.zip/node_modules/react-router-dom/",\
+        "packageDependencies": [\
+          ["react-router-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:6.22.1"],\
+          ["@remix-run/router", "npm:1.15.1"],\
+          ["@types/react", "npm:18.2.55"],\
+          ["@types/react-dom", "npm:18.2.19"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:f1d4e2148166947cc3f922a3b50a12cb6438bc3e5c0aabe3e3fd7fb8e2c9bf04705dec61e3462a331965e3bdfe4c8f80f08bac4c3e54ccfb373056b0d3dfbf3d#npm:18.2.0"],\
+          ["react-router", "virtual:a99b64fb309042ced2fe2dd3dd04f2ef50b3456ddb21405cc0acab4b7c48fb56c86a16456e221313c2e78ab2e22cebf5a8d36e767f526f612010646571e616ef#npm:6.22.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
