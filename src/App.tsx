@@ -4,7 +4,6 @@ import HomePage from './pages/Home'
 import TestPage from './pages/Test'
 
 function App() {
-  const { open }: any = useAlertContext()
   return (
     <BrowserRouter>
       <Routes>
