@@ -4,6 +4,8 @@ import ListRow from '../shared/ListRow'
 import { flatten } from 'lodash'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
+import Badge from '../shared/Badge'
+import { useNavigate } from 'react-router-dom'
 
 function CardList() {
   const {
@@ -26,6 +28,8 @@ function CardList() {
 
   const cards = flatten(data?.pages.map(({ items }) => items))
 
+  const navigate = useNavigate()
+
   const loadMore = useCallback(() => {
     if (hasNextPage === false || isFetching) {
       return
@@ -39,19 +43,32 @@ function CardList() {
         hasMore={hasNextPage}
         loader={<></>}
         next={loadMore}
+        scrollThreshold="100px"
       >
-        {cards?.map((card, index) => {
-          return (
-            <ListRow
-              contents={
-                <ListRow.Texts title={`${index + 1}위`} subtitle={card.name} />
-              }
-              right={card.payback !== null ? <div>{card.payback}</div> : null}
-              withArrow={true}
-              key={card.id}
-            />
-          )
-        })}
+        <ul>
+          {cards?.map((card, index) => {
+            return (
+              <ListRow
+                contents={
+                  <ListRow.Texts
+                    title={`${index + 1}위`}
+                    subtitle={card.name}
+                  />
+                }
+                right={
+                  card.payback !== null ? null : (
+                    <Badge label={card?.payback!} />
+                  )
+                }
+                withArrow={true}
+                key={card.id}
+                onClick={() => {
+                  navigate(`/card/${card.id}`)
+                }}
+              />
+            )
+          })}
+        </ul>
       </InfiniteScroll>
     </div>
   )
