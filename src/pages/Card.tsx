@@ -7,6 +7,7 @@ import { getCard } from '@/remote/card'
 import { css } from '@emotion/react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 export default function CardPage() {
   const { id = '' } = useParams()
@@ -27,13 +28,27 @@ export default function CardPage() {
       <ul>
         {benefit.map((text, index: number) => {
           return (
-            <ListRow
+            <motion.li
               key={text}
-              left={<IconCheck />}
-              contents={
-                <ListRow.Texts title={`혜택 ${index + 1}`} subtitle={text} />
-              }
-            />
+              initial={{ opacity: 0, translateX: -90 }}
+              animate={{
+                opacity: 1,
+                translateX: 0,
+                transition: {
+                  duration: 1.5,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: index * 0.1,
+                },
+              }}
+            >
+              <ListRow
+                as="div"
+                left={<IconCheck />}
+                contents={
+                  <ListRow.Texts title={`혜택 ${index + 1}`} subtitle={text} />
+                }
+              />
+            </motion.li>
           )
         })}
       </ul>
