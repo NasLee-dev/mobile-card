@@ -7,7 +7,7 @@ interface SpaceProps {
 
 const Spacing = styled.div<SpaceProps>`
   ${({ size, direction = 'vertical' }) =>
-    direction === 'vertical' ? `heigth : ${size}px` : `width: ${size}px`};
+    direction === 'vertical' ? `height : ${size}px;` : `width: ${size}px;`};
 `
 
 export default Spacing

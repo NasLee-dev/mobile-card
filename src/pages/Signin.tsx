@@ -1,7 +1,12 @@
+import Form from '@/components/signin/Form'
+import { FormValues } from '@/models/signin'
+import { useCallback } from 'react'
+
 export default function SigninPage() {
+  const handleSubmit = useCallback((formValues: FormValues) => {}, [])
   return (
     <div>
-      <h1>Signin Page</h1>
+      <Form onSubmit={handleSubmit} />
     </div>
   )
 }
