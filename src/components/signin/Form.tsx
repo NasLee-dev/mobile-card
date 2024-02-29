@@ -41,6 +41,7 @@ export default function Form({
       <TextField
         label="패스워드"
         name="password"
+        type="password"
         onChange={handleFormValues}
         value={formValues.password}
       />

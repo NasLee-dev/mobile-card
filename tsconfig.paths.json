@@ -8,7 +8,9 @@
           "@shared/*": ["src/components/shared/*"],
           "@contexts/*": ["src/contexts/*"],
           "@models/*": ["src/models/*"],
-          "@pages/*": ["src/pages/*"]
+          "@pages/*": ["src/pages/*"],
+          "@atoms/*": ["src/components/atoms/*"],
+          "@hooks/*": ["src/hooks/*"]
       }
   }
 }

@@ -6,14 +6,33 @@ import Top from '@/components/shared/Top'
 import { getCard } from '@/remote/card'
 import { css } from '@emotion/react'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useCallback } from 'react'
+import useUser from '@/hooks/auth/useUser'
+import { useAlertContext } from '@/contexts/AlertContext'
 
 export default function CardPage() {
   const { id = '' } = useParams()
+  const { open } = useAlertContext()!
+  const user = useUser()
+  const navigate = useNavigate()
   const { data } = useQuery(['card', id], () => getCard(id), {
     enabled: !!id, // id가 있을 때만 실행
   })
+
+  const moveToApply = useCallback(() => {
+    if (user == null) {
+      open({
+        title: '로그인이 필요합니다',
+        onButtonClick: () => {
+          navigate('/signin')
+        },
+      })
+      return
+    }
+    navigate(`/apply/${id}`)
+  }, [user, id, open, navigate])
 
   if (data == null) {
     return null
@@ -58,7 +77,12 @@ export default function CardPage() {
           <Text typography="t7">{removeHtmlTags(promotion.terms)}</Text>
         </Flex>
       ) : null}
-      <FixedButtomButton label="신청하기" onClick={() => {}} />
+      <FixedButtomButton
+        label="신청하기"
+        onClick={() => {
+          moveToApply()
+        }}
+      />
     </div>
   )
 }
