@@ -2,11 +2,12 @@ import Agreement from '../shared/Agreement'
 import { 약관목록 } from '@/constants/apply'
 import { MouseEvent, useCallback, useState } from 'react'
 import FixedButtomButton from '../shared/FixedBottomButton'
+import { ApplyValues } from '@/models/apply'
 
 export default function TermsPage({
   onNext,
 }: {
-  onNext: (terms: string[]) => void
+  onNext: (terms: ApplyValues['terms']) => void
 }) {
   const [termsAgreements, setTermsAgreement] = useState(() => {
     return 약관목록.reduce<Record<string, boolean>>(
