@@ -28,8 +28,6 @@ export default function CardInfo({
     }))
   }, [])
 
-  console.log(cardInfoValues)
-
   return (
     <div>
       <Button.Group title="해외결제">
@@ -56,7 +54,7 @@ export default function CardInfo({
       <Button.Group title="후불교통기능">
         <Button
           name="isRf"
-          weak={isRf === false}
+          weak={isRf === true}
           size="medium"
           data-value={false}
           onClick={handleButtonClick}
@@ -65,7 +63,7 @@ export default function CardInfo({
         </Button>
         <Button
           name="isRf"
-          weak={isRf === true}
+          weak={isRf === false}
           size="medium"
           data-value={true}
           onClick={handleButtonClick}
@@ -77,7 +75,7 @@ export default function CardInfo({
       <Button.Group title="후불하이패스카드">
         <Button
           name="isHipass"
-          weak={isHipass === false}
+          weak={isHipass === true}
           size="medium"
           data-value={false}
           onClick={handleButtonClick}
@@ -86,7 +84,7 @@ export default function CardInfo({
         </Button>
         <Button
           name="isHipass"
-          weak={isHipass === true}
+          weak={isHipass === false}
           size="medium"
           data-value={true}
           onClick={handleButtonClick}

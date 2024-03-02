@@ -1,12 +1,28 @@
-import BasicInfo from '@/components/apply/BasicInfo'
-import CardInfo from '@/components/apply/CardInfo'
-import TermsPage from '@/components/apply/Terms'
-import { useState } from 'react'
-import { ApplyValues } from '@/models/apply'
 import Apply from '@/components/apply'
+import useApplyCardMutation from '@/components/apply/hooks/useApplyCardMutation'
+import usePollApplyStatus from '@/hooks/auth/usePollApplyStatus'
+import { useState } from 'react'
 
 export default function ApplyPage() {
-  const [step, setStep] = useState(0)
-  const handleSubmit = () => {}
-  return <Apply step={step} onSubmit={handleSubmit} />
+  const [readyToPoll, setReadyToPoll] = useState(false)
+  usePollApplyStatus({
+    onSuccess: () => {
+      console.log('카드 발급 완료')
+    },
+    onError: () => {
+      console.log('카드 발급 실패')
+    },
+    enabled: readyToPoll,
+  })
+  const { mutate } = useApplyCardMutation({
+    onSuccess: () => {
+      setReadyToPoll(true)
+      //  값이 추가되었을때 => 폴링 시작
+    },
+    onError: () => {
+      //  실패했을 때 => 폴링 시작
+      window.history.back()
+    },
+  })
+  return <Apply onSubmit={mutate} />
 }
