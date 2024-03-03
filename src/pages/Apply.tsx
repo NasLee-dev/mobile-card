@@ -6,12 +6,42 @@ import { APPLY_STATUS } from '@/models/apply'
 import { updateApplyCard } from '@/remote/apply'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import useAppliedCard from '@/components/apply/hooks/useAppliedCard'
+import { useAlertContext } from '@/contexts/AlertContext'
+import FullpageLoader from '@/components/shared/FullpageLoader'
 
 export default function ApplyPage() {
   const navigate = useNavigate()
   const [readyToPoll, setReadyToPoll] = useState(false)
   const user = useUser()
+  const { open } = useAlertContext()!
   const { id } = useParams() as { id: string }
+
+  const { data } = useAppliedCard({
+    userId: user?.uid as string,
+    cardId: id,
+    options: {
+      onSuccess: (applied) => {
+        if (applied == null) {
+          return
+        }
+        if (applied.status === APPLY_STATUS.COMPLETE) {
+          //  이미 발급이 완료된 요소라면
+          open({
+            title: '이미 발급이 완료된 카드입니다.',
+            onButtonClick: () => {
+              window.history.back()
+            },
+          })
+          return
+        }
+        setReadyToPoll(true) //  카드 신청 정보가 있으면서, 발급이 완료되지 않았다면 폴링 시작 => 카드 재심사 시작
+      },
+      onError: () => {},
+      suspense: true,
+    },
+  })
+
   usePollApplyStatus({
     onSuccess: async () => {
       await updateApplyCard({
@@ -50,8 +80,11 @@ export default function ApplyPage() {
       window.history.back()
     },
   })
+  if (data != null && data.status === APPLY_STATUS.COMPLETE) {
+    return null
+  }
   if (readyToPoll || 카드를신청중인가) {
-    return <div>Loading</div>
+    return <FullpageLoader message="카드 신청 중입니다." />
   }
   return <Apply onSubmit={mutate} />
 }
