@@ -7,6 +7,7 @@ import useUser from '@/hooks/auth/useUser'
 import { useCallback } from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/remote/firebase'
+import MyImage from '../my/MyImage'
 
 export default function Navbar() {
   const location = useLocation()
@@ -19,13 +20,9 @@ export default function Navbar() {
   const renderButton = useCallback(() => {
     if (user != null) {
       return (
-        <Button
-          onClick={() => {
-            handleLogout()
-          }}
-        >
-          로그아웃
-        </Button>
+        <Link to="/my">
+          <MyImage size={40} />
+        </Link>
       )
     }
     if (showSignButton) {

@@ -9,6 +9,7 @@ import PrivateRoute from './components/auth/PrivateRoute'
 import ApplyPage from './pages/Apply'
 import ApplyDone from './pages/ApplyDone'
 import { Suspense } from 'react'
+import MyPage from './pages/My'
 
 function App() {
   return (
@@ -35,6 +36,14 @@ function App() {
           element={
             <PrivateRoute>
               <ApplyDone />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my"
+          element={
+            <PrivateRoute>
+              <MyPage />
             </PrivateRoute>
           }
         />
