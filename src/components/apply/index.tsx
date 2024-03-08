@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { ApplyValues, APPLY_STATUS } from '@/models/apply'
 import useUser from '@/hooks/auth/useUser'
 import { useParams } from 'react-router-dom'
+import ProgressBar from '../shared/ProgressBar'
 
 export default function Apply({
   onSubmit,
@@ -65,6 +66,7 @@ export default function Apply({
   }
   return (
     <div>
+      <ProgressBar progress={applyValues.step! / 3} />
       {applyValues.step === 0 ? <TermsPage onNext={handleTermsChange} /> : null}
       {applyValues.step === 1 ? (
         <BasicInfo onNext={handleBasicInfoChange} />

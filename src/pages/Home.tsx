@@ -1,6 +1,5 @@
 import AdBanners from '@/components/home/AdBanners'
 import CardList from '@/components/home/CardList'
-import Button from '@/components/shared/Button'
 import ListRow from '@/components/shared/ListRow'
 import Top from '@/components/shared/Top'
 import { Suspense } from 'react'
